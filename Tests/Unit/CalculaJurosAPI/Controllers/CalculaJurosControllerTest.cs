@@ -20,18 +20,20 @@ namespace Tests.Unit.CalculaJurosAPI.Controllers
             result.StatusCode.Should().Be(200);
         }
 
-        [Fact]
-        public void CalcularJuros_DeveRetornarValorCalculado ()
+        [Theory]
+        [InlineData(100, 5, 105.10)]
+        [InlineData(90, 8, 97.45)]
+        [InlineData(100.40, 3, 103.44)]
+        public void CalcularJuros_DeveRetornarValorCalculado (decimal valorInicial, int meses, decimal expected)
         {
             // Arrange
             var controller = new CalculaJurosController();
 
             // Act
-            var result = (OkObjectResult)controller.Get(100, 5);
+            var result = (OkObjectResult)controller.Get(valorInicial, meses);
 
             // Assert
-            var expectedValue = 105.10M;
-            result.Value.Should().Be(expectedValue);
+            result.Value.Should().Be(expected);
         }
     }
 }
