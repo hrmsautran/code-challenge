@@ -9,7 +9,7 @@ namespace CalculaJurosAPI.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok();
+            return Ok(105.10);
         }
     }
 }
