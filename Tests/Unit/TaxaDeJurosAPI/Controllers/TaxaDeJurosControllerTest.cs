@@ -32,5 +32,19 @@ namespace Tests.Unit.TaxaDeJurosAPI.Controllers
             // Assert
             result.StatusCode.Should().NotBeNull();
         }
+
+        [Fact]
+        public void ObterTaxaDeJuros_DeveRetornarValorFixo()
+        {
+            // Arrange
+            var controller = new TaxaDeJurosController();
+
+            // Act
+            var result = (OkObjectResult)controller.ObterTaxaDeJuros();
+
+            // Assert
+            var expectedValue = 0.01;
+            result.Value.Should().Be(expectedValue);
+        }
     }
 }
