@@ -7,7 +7,7 @@ namespace TaxaDeJurosAPI.Controllers
     public class TaxaDeJurosController : ControllerBase
     {
         [HttpGet(Name = "taxaJuros")]
-        public IActionResult Get()
+        public IActionResult ObterTaxaDeJuros()
         {
             return View();
         }
