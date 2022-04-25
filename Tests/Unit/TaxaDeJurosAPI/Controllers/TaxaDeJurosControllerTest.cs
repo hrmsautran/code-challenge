@@ -1,6 +1,6 @@
 ﻿using Xunit;
 using FluentAssertions;
-using TaxaDeJurosAPI.Controllers;
+using TaxaJurosAPI.Controllers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Tests.Unit.TaxaDeJurosAPI.Controllers
