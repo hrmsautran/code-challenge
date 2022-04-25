@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CalculaJurosAPI.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CalculaJurosAPI.Controllers
 {
@@ -9,8 +10,9 @@ namespace CalculaJurosAPI.Controllers
         [HttpGet]
         public IActionResult Get(decimal valorInicial, int meses)
         {
-            var valorFinal = valorInicial * (decimal)Math.Pow(1 + 0.01, meses);
-            return Ok(Math.Round(valorFinal, 2));
+            var juros = new Juros(valorInicial, meses, 0.01);
+            
+            return Ok(juros.Calcular());
         }
     }
 }
