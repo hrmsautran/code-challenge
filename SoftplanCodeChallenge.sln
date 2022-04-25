@@ -3,9 +3,35 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5C010AED-B849-4D5B-AC55-99099783F9F7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B76D93D0-15FD-4500-8D56-47319D97AB36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxaDeJurosAPI", "TaxaDeJurosAPI\TaxaDeJurosAPI.csproj", "{9B085520-FFC6-4668-8040-508BDB93C71C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{C45387C0-568B-464A-B7C7-C27128BE5FF4}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9B085520-FFC6-4668-8040-508BDB93C71C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B085520-FFC6-4668-8040-508BDB93C71C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B085520-FFC6-4668-8040-508BDB93C71C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B085520-FFC6-4668-8040-508BDB93C71C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C45387C0-568B-464A-B7C7-C27128BE5FF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C45387C0-568B-464A-B7C7-C27128BE5FF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C45387C0-568B-464A-B7C7-C27128BE5FF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C45387C0-568B-464A-B7C7-C27128BE5FF4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9B085520-FFC6-4668-8040-508BDB93C71C} = {5C010AED-B849-4D5B-AC55-99099783F9F7}
+		{C45387C0-568B-464A-B7C7-C27128BE5FF4} = {B76D93D0-15FD-4500-8D56-47319D97AB36}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6753DFB0-E639-49B7-8C76-B73BA314141B}
