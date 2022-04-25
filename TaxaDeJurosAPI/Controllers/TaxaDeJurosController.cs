@@ -9,7 +9,7 @@ namespace TaxaDeJurosAPI.Controllers
         [HttpGet(Name = "taxaJuros")]
         public IActionResult ObterTaxaDeJuros()
         {
-            return View();
+            return Ok(1);
         }
     }
 }
