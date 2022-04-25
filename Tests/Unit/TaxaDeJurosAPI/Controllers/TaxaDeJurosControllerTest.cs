@@ -11,7 +11,7 @@ namespace Tests.Unit.TaxaDeJurosAPI.Controllers
         public void ObterTaxaDeJuros_DeveRetornarStatusCode200()
         {
             // Arrange
-            var controller = new TaxaDeJurosController();
+            var controller = new TaxaJurosController();
 
             // Act
             var result = (OkObjectResult)controller.ObterTaxaDeJuros();
@@ -24,7 +24,7 @@ namespace Tests.Unit.TaxaDeJurosAPI.Controllers
         public void ObterTaxaDeJuros_NaoDeveRetornarNulo()
         {
             // Arrange
-            var controller = new TaxaDeJurosController();
+            var controller = new TaxaJurosController();
 
             // Act
             var result = (OkObjectResult)controller.ObterTaxaDeJuros();
@@ -37,7 +37,7 @@ namespace Tests.Unit.TaxaDeJurosAPI.Controllers
         public void ObterTaxaDeJuros_DeveRetornarValorFixo()
         {
             // Arrange
-            var controller = new TaxaDeJurosController();
+            var controller = new TaxaJurosController();
 
             // Act
             var result = (OkObjectResult)controller.ObterTaxaDeJuros();

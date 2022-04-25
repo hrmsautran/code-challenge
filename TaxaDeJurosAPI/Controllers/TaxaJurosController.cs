@@ -4,11 +4,11 @@ namespace TaxaDeJurosAPI.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class TaxaDeJurosController : ControllerBase
+    public class TaxaJurosController : ControllerBase
     {
         protected const double TAXA_DE_JUROS = 0.01;
 
-        [HttpGet(Name = "taxaJuros")]
+        [HttpGet]
         public IActionResult ObterTaxaDeJuros()
         {
             return Ok(TAXA_DE_JUROS);
