@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CalculaJurosAPI\CalculaJurosAPI.csproj" />
     <ProjectReference Include="..\TaxaDeJurosAPI\TaxaDeJurosAPI.csproj" />
   </ItemGroup>
 
