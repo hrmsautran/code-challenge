@@ -14,7 +14,7 @@ namespace Tests.Unit.CalculaJurosAPI.Controllers
             var controller = new CalculaJurosController();
 
             // Act
-            var result = (OkResult)controller.Get();
+            var result = (OkObjectResult)controller.Get();
 
             // Assert
             result.StatusCode.Should().Be(200);
@@ -31,7 +31,7 @@ namespace Tests.Unit.CalculaJurosAPI.Controllers
 
             // Assert
             var expectedValue = 105.10;
-            result.Should().Be(expectedValue);
+            result.Value.Should().Be(expectedValue);
         }
     }
 }
