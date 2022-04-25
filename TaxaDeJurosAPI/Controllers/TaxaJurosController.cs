@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace TaxaDeJurosAPI.Controllers
+namespace TaxaJurosAPI.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -8,6 +8,10 @@ namespace TaxaDeJurosAPI.Controllers
     {
         protected const double TAXA_DE_JUROS = 0.01;
 
+        /// <summary>
+        /// Retorna taxa de juros.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult ObterTaxaDeJuros()
         {
