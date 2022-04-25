@@ -7,9 +7,10 @@ namespace CalculaJurosAPI.Controllers
     public class CalculaJurosController : ControllerBase
     {
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult Get(decimal valorInicial, int meses)
         {
-            return Ok(105.10);
+            var valorFinal = valorInicial * (decimal)Math.Pow(1 + 0.01, meses);
+            return Ok(Math.Round(valorFinal, 2));
         }
     }
 }
