@@ -1,4 +1,5 @@
 ﻿using CalculaJurosAPI.Models;
+using CalculaJurosAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CalculaJurosAPI.Controllers
@@ -7,11 +8,28 @@ namespace CalculaJurosAPI.Controllers
     [Route("[controller]")]
     public class CalculaJurosController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult Get(decimal valorInicial, int meses)
+        private readonly ITaxaDeJurosService _taxaService;
+
+        public CalculaJurosController(ITaxaDeJurosService taxaService)
         {
-            var juros = new Juros(valorInicial, meses, 0.01);
-            
+            _taxaService = taxaService;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Get(decimal valorInicial, int meses)
+        {
+            double taxa;
+            try
+            {
+                taxa = await _taxaService.GetAsync();
+            }
+            catch (HttpRequestException ex)
+            {
+                throw new HttpRequestException(ex.Message);
+            }
+
+            var juros = new Juros(valorInicial, meses, taxa);
+
             return Ok(juros.Calcular());
         }
     }
