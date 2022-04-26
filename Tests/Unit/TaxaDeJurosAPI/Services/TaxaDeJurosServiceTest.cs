@@ -42,7 +42,7 @@ namespace Tests.Unit.TaxaDeJurosAPI.Services
             httpClientFactory.Verify(f => f.CreateClient(It.IsAny<string>()), Times.Once);
 
             result.Should().BeGreaterThan(0);
-            result.Should().Be((decimal)105.10);
+            result.Should().Be(105.10);
         }
 
         [Fact]
