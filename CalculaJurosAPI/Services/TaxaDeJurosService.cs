@@ -11,7 +11,7 @@ namespace CalculaJurosAPI.Services
             _httpClientFactory = httpClientFactory;
         }
 
-        public async Task<decimal> GetAsync()
+        public async Task<double> GetAsync()
         {
             using var httpClient = _httpClientFactory.CreateClient("apiTaxaDeJuros");
 
@@ -23,7 +23,7 @@ namespace CalculaJurosAPI.Services
             }
 
             var content = await result.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<decimal>(content);
+            return JsonConvert.DeserializeObject<double>(content);
         }
     }
 }

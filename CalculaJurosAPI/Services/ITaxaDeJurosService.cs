@@ -2,6 +2,6 @@
 {
     public interface ITaxaDeJurosService
     {
-        Task<decimal> GetAsync();
+        Task<double> GetAsync();
     }
 }
