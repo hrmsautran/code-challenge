@@ -11,6 +11,11 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddHttpClient<ITaxaDeJurosService, TaxaDeJurosService>();
 
+builder.Services.AddHttpClient("apiTaxaDeJuros", (provider, client) =>
+{
+    client.BaseAddress = new Uri(@"http://localhost:8000");
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
