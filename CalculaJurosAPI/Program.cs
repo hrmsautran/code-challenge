@@ -1,6 +1,7 @@
 using CalculaJurosAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+var configuration = builder.Configuration;
 
 // Add services to the container.
 
@@ -9,11 +10,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddHttpClient<ITaxaDeJurosService, TaxaDeJurosService>();
+builder.Services.AddScoped<ITaxaDeJurosService, TaxaDeJurosService>();
 
 builder.Services.AddHttpClient("apiTaxaDeJuros", (provider, client) =>
 {
-    client.BaseAddress = new Uri(@"http://localhost:8000");
+    client.BaseAddress = new Uri(configuration.GetValue<string>("TaxaDeJurosApi"));
 });
 
 var app = builder.Build();
