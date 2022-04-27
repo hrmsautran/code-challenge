@@ -36,7 +36,9 @@ namespace CalculaJurosAPI.Controllers
 
             var juros = new Juros(valorInicial, meses, taxa);
 
-            return Ok(juros.Calcular());
+            var result = juros.Calcular().ToString("N2");
+
+            return Ok(result);
         }
     }
 }
