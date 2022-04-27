@@ -75,7 +75,7 @@ namespace Tests.Unit.CalculaJurosAPI.Services
 
 
             // Assert
-            await Assert.ThrowsAsync<HttpRequestException>(() => service.GetAsync());
+            await Assert.ThrowsAsync<System.Exception>(() => service.GetAsync());
         }
     }
 }
