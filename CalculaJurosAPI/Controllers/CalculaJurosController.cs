@@ -15,6 +15,12 @@ namespace CalculaJurosAPI.Controllers
             _taxaService = taxaService;
         }
 
+        /// <summary>
+        /// Retorna taxa de juros calculado.
+        /// </summary>
+        /// <param name="valorInicial">Valor inicial para o cálculo.</param>
+        /// <param name="meses">Quantidade de meses para o cálculo.</param>
+        /// <returns>Um valor decimal representando o cálculo, ex: 105.10</returns>
         [HttpGet]
         public async Task<IActionResult> Get(decimal valorInicial, int meses)
         {
