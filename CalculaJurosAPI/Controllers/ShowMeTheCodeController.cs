@@ -13,9 +13,13 @@ namespace CalculaJurosAPI.Controllers
             _githubRepository = "https://github.com/hrmsautran/code-challenge";
         }
 
-        public string Get()
+        /// <summary>
+        /// Retorna a URL do repositório do projeto.
+        /// </summary>
+        [HttpGet]
+        public IActionResult Get()
         {
-            return this._githubRepository;
+            return Ok(this._githubRepository);
         }
     }
 }
