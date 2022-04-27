@@ -23,9 +23,9 @@ namespace CalculaJurosAPI.Controllers
             {
                 taxa = await _taxaService.GetAsync();
             }
-            catch (HttpRequestException ex)
+            catch (Exception ex)
             {
-                throw new HttpRequestException(ex.Message);
+                return BadRequest(ex.Message);
             }
 
             var juros = new Juros(valorInicial, meses, taxa);
