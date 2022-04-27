@@ -1,5 +1,7 @@
 using CalculaJurosAPI.Services;
 using Microsoft.OpenApi.Models;
+using Polly;
+using Polly.Extensions.Http;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -28,7 +30,17 @@ builder.Services.AddScoped<ITaxaDeJurosService, TaxaDeJurosService>();
 builder.Services.AddHttpClient("apiTaxaDeJuros", (provider, client) =>
 {
     client.BaseAddress = new Uri(configuration.GetValue<string>("TaxaDeJurosApi"));
-});
+})
+.SetHandlerLifetime(TimeSpan.FromMinutes(5))
+.AddPolicyHandler(GetRetryPolicy());
+
+static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
+{
+    return HttpPolicyExtensions
+        .HandleTransientHttpError()
+        .OrResult(msg => msg.StatusCode == System.Net.HttpStatusCode.NotFound)
+        .WaitAndRetryAsync(6, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)));
+}
 
 var app = builder.Build();
 
