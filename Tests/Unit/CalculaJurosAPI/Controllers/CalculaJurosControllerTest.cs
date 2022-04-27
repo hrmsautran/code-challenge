@@ -31,5 +31,24 @@ namespace Tests.Unit.CalculaJurosAPI.Controllers
             // Assert
             result.Should().Be(expected);
         }
+
+        [Fact]
+        public async Task CalcularJuros_DeveRetornarExceptionQuandoNaoConseguirCalcular()
+        {
+            // Arrange
+            var mockService = new Mock<ITaxaDeJurosService>();
+
+            mockService
+                .Setup(service => service.GetAsync())
+                .ThrowsAsync(new System.Exception());
+
+            var controller = new CalculaJurosController(mockService.Object);
+
+            // Act
+            var contentResult = await controller.Get(0, 0);
+
+            // Assert
+            Assert.IsType<BadRequestObjectResult>(contentResult);
+        }
     }
 }
