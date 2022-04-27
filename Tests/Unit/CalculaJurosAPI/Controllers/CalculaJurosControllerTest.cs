@@ -11,8 +11,8 @@ namespace Tests.Unit.CalculaJurosAPI.Controllers
     public class CalculaJurosControllerTest
     {
         [Theory]
-        [InlineData(100, 5, 105.10)]
-        public async Task CalcularJuros_DeveRetornarValorCalculado(decimal valorInicial, int meses, decimal expected)
+        [InlineData(100, 5, "105,10")]
+        public async Task CalcularJuros_DeveRetornarValorCalculado(decimal valorInicial, int meses, string expected)
         {
             // Arrange
             var mockService = new Mock<ITaxaDeJurosService>();
