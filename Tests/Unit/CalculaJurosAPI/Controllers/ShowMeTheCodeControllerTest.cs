@@ -1,6 +1,7 @@
 ﻿using Xunit;
 using FluentAssertions;
 using CalculaJurosAPI.Controllers;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Tests.Unit.CalculaJurosAPI.Controllers
 {
@@ -13,11 +14,12 @@ namespace Tests.Unit.CalculaJurosAPI.Controllers
             var controller = new ShowMeTheCodeController();
 
             // Act
-            var result = controller.Get();
+            var result = (OkObjectResult)controller.Get();
 
             // Assert
             var githubRepo = "https://github.com/hrmsautran/code-challenge";
-            result.Should().Be(githubRepo);
+
+            result.Value.Should().Be(githubRepo);
         }
     }
 }
